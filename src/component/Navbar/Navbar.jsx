@@ -1,18 +1,22 @@
 import style from './Navbar.module.css'
+import Logo from "../../assets/ibex.png"
 
-const Navbar = () => {
+const Navbar = ({activeSection}) => {
     return (
         <div className='navbar'>
             <div className={style.wrapper}>
-                <a className={style.title}>Fouzan M</a>
-                <div className={style.navbar}>
-                    <a className={style.navItem} href='#portfolio'><span>Home</span></a>
-                    <a className={style.navItem} href='#about'><span>About</span></a>
-                    <a className={style.navItem} href='#resume'><span>Resume</span></a>
-                    <a className={style.navItem} href='#skill'><span>Skill</span></a>
-                    <a className={style.navItem} href='#project'><span>Project</span></a>
-                    <a className={style.navItem} href='#contact'><span>Contact</span></a>
+                <div className={style.title}>
+                    <img className={style.ibex} src={Logo}/>
+                    <h1 className={style.logo}>ibex</h1>
                 </div>
+                <nav className={style.navbar}>
+                    <a className={`${style.navItem} ${activeSection === 'home' ? style.active : ''}`} href='#home'><span>Home</span></a>
+                    <a className={`${style.navItem} ${activeSection === 'about' ? style.active : ''}`} href='#about'><span>About</span></a>
+                    <a className={`${style.navItem} ${activeSection === 'resume' ? style.active : ''}`} href='#resume'><span>Resume</span></a>
+                    <a className={`${style.navItem} ${activeSection === 'skill' ? style.active : ''}`} href='#skill'><span>Skill</span></a>
+                    <a className={`${style.navItem} ${activeSection === 'project' ? style.active : ''}`} href='#project'><span>Project</span></a>
+                    <a className={`${style.navItem} ${activeSection === 'contact' ? style.active : ''}`} href='#contact'><span>Contact</span></a>
+                </nav>
             </div>
         </div>
     )

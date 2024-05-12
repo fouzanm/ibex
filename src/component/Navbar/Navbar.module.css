@@ -11,14 +11,20 @@
 .wrapper .title {
     font-weight: 900;
     font-size: 24px;
-    text-decoration: none;
-    text-transform: uppercase;
+    color: var(--primary-color);
     transition: color 0.3s ease;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ibex {
+    width: 50px;
 }
 
 .title:hover {
-    color: var(--primary-color);
+    color: white;
 }
 
 .navbar {
@@ -39,7 +45,10 @@
 }
 
 .navItem:hover {
-    /* color: var(--primary-color); */
-    border-bottom-color: var(--primary-color);
-       
+    border-bottom-color: var(--primary-color); 
 }
+
+.navbar .active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+  }

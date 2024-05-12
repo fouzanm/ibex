@@ -8,6 +8,18 @@
   --input-color: #545454
 }
 
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+      width: 10px;      
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: #B6B9C4;
+      border-radius: 6px;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -160,4 +172,14 @@ form img {
   height: 100px;
   display: flex;
   justify-content: center;
+  background: linear-gradient(180deg, var(--secondary-bg), var(--teritiary-color));
+}
+
+.portfolio {
+  height: 100vh;
+  background: linear-gradient(180deg, var(--secondary-bg), var(--teritiary-color));;
+}
+
+.portfolio:nth-child(odd) {
+  background: linear-gradient(180deg, var(--teritiary-color), var(--secondary-bg));;
 }
