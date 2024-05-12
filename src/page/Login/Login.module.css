@@ -1,0 +1,17 @@
+.buttonGroups {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.forgotPassword {
+    color: var(--primary-bg);
+    background-color: white;
+    letter-spacing: 0px;
+    font-weight: normal;
+    flex: 1;
+}
+
+.login {
+    flex: 1;
+}
