@@ -15,8 +15,12 @@
 }
 
 .imageWrapper {
-    background: yellow;
     width: 30%;
+    max-width: 50%;
+}
+
+.imageWrapper img {
+    width: 700px;
 }
 
 .wrapper span {

@@ -12,7 +12,7 @@ const Home = () => {
             </div>
         </div>
         <div className={style.imageWrapper}>
-            image
+            <img src='' alt='' />
         </div>
     </div>)
 }
