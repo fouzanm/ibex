@@ -24,7 +24,7 @@
 }
 
 .imageWrapper img:hover {
-    /* transform: scale(1.01); */
+    transform: scale(1.01);
 }
 
 .formWrapper{
@@ -38,7 +38,7 @@
     will-change: transform;
 }
 .formWrapper:hover {
-    /* transform: scale(1.02); */
+    transform: scale(1.01);
 }
 .title {
     display: flex;
