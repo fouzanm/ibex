@@ -1,11 +1,8 @@
 :root {
-  --primary-bg: #030C35;
-  --secondary-bg: #0A1340;
-  --teritiary-color: #021959;
-  --primary-color: #FFA500;
-  --secondary-color: #324DA6;
-  --text-color: #B6B9C4;
-  --input-color: #545454
+  --primary-color: #000000;
+  --secondary-color: #FAB316;
+  --text-color: #585858;
+  --teritiary-color: #F1F1F1;
 }
 
 html {
@@ -15,7 +12,7 @@ html {
       width: 10px;      
   }
   &::-webkit-scrollbar-thumb {
-      background-color: #B6B9C4;
+      background-color:  var(--teritiary-color);
       border-radius: 6px;
   }
 }
@@ -24,162 +21,22 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;   
+  font-family: monospace;;   
 }
 
 body {
   margin: 0px;
-  background-color: var(--primary-bg);
-  color: white;
-}
-
-.formContainer {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.formWrapper {
-  background: linear-gradient(180deg, var(--secondary-bg), var(--teritiary-color));
-  padding: 30px 80px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-.ibex {
-  width: 50px;
-}
-
-.logo {
-  color: var(--primary-color);
-  font-weight: bolder;
-  font-size: 48px;
-  transition: color 0.3s ease;
-}
-
-.logo:hover {
-  color: white;
-}
-
-.title {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 500px;
-  margin: 5px;
-}
-
-form input {
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  height: 60px;
-  width: 100%;
-  color: var(--input-color);
-  font-weight: bold;
-  font-size: 18px;
-  &::placeholder{
-    font-weight: 500;
-    color: var(--text-color);
-  }
-}
-
-form input:focus {
-  outline: none;
-}
-
-form button {
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  height: 60px;
-  border: none;
-  border-radius: 5px;
   background-color: var(--primary-color);
   color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  letter-spacing: 2px;
-
 }
 
-form button:hover {
-  background: linear-gradient(to right, var(--secondary-bg), var(--primary-bg));
-  color: var(--primary-color);
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill::selection {
+    background-color: transparent;
+    transition: background-color 5000s ease-in-out 0s;
 }
-
-form label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-form img {
-  width: 26px;
-}
-
-.formWrapper p {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--text-color);
-}
-
-.formWrapper a {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.formWrapper a:hover {
-  color: var(--primary-color);
-}
-
-.passwordWrapper {
-  position: relative;
-  z-index: 1;
-}
-
-.passwordWrapper span{
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: black;
-  font-size: 18px;
-}
-
-.navbar {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(180deg, var(--secondary-bg), var(--teritiary-color));
-}
-
-.portfolio {
-  height: 100vh;
-  background: linear-gradient(180deg, var(--secondary-bg), var(--teritiary-color));;
-}
-
-.portfolio:nth-child(odd) {
-  background: linear-gradient(180deg, var(--teritiary-color), var(--secondary-bg));;
+input:-webkit-autofill {
+  -webkit-text-fill-color: white;
 }

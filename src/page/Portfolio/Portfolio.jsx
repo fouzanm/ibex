@@ -31,13 +31,13 @@ const Portfolio = () => {
 
     return (
         <section id='portfolio' className='portfolio'>
-            <Navbar activeSection={activeSection || 'home'}/>
+            {/* <Navbar activeSection={activeSection || 'home'}/>
             <div className='section' id='home'><Home/></div>
             <div className='section' id='about'>About</div>
             <div className='section' id='resume'>Resume</div>
             <div className='section' id='skill'>Skill</div>
             <div className='section' id='project'>Project</div>
-            <div className='section' id='contact'>Contact</div>
+            <div className='section' id='contact'>Contact</div> */}
         </section>
 
     )

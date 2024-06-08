@@ -29,7 +29,7 @@ const Register = () => {
     }
 
     return <div className="formContainer">
-        <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/>
+        {/* <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/>
         <div className="formWrapper">
             <div className="title">
                 <img className="ibex" src={Logo}/>
@@ -53,7 +53,7 @@ const Register = () => {
                 <button>Sign Up</button>
             </form>
             <p>Already have an account? <Link to='/login'>Log in</Link></p>
-        </div>
+        </div> */}
     </div>
 }
 

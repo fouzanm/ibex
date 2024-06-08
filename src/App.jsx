@@ -13,10 +13,10 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route path='/'>
-            <Route index element={<Portfolio/>}/>
+            {/* <Route index element={<Portfolio/>}/> */}
             <Route path='/login' element={<Login/>}/>
-            <Route path='/signup' element={<Register/>}/>
-            <Route path='/chat' element={<Chat/>}/>
+            {/* <Route path='/signup' element={<Register/>}/> */}
+            {/* <Route path='/chat' element={<Chat/>}/> */}
           </Route>
         </Routes>
     </BrowserRouter>

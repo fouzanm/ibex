@@ -30,9 +30,9 @@ const ResetPassword = ({setOpenModal}) => {
         <div className={style.modalBackground}>
             <div className={style.modalContainer}>
                 <div className={style.title}>
-                    <h2>Reset your password</h2>
+                    <h2>Reset Your Password</h2>
                 </div>
-                <div className={style.body}>
+                {/* <div className={style.body}>
                     <form>
                         <input type="email" placeholder="Email" ref={refEmail}/> 
                         <div className="passwordWrapper">
@@ -50,13 +50,13 @@ const ResetPassword = ({setOpenModal}) => {
                             </span>
                         </div>
                     </form>
-                </div>
-                <div className={style.footer}>
+                </div> */}
+                {/* <div className={style.footer}>
                     <button className={style.cancelBtn} onClick={() => {setOpenModal(false);}}>
                         Back to Login
                     </button>
                     <button onClick={handleResetPassword}>Reset Password</button>
-                </div>
+                </div> */}
             </div>
         </div>
     );
