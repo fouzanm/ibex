@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TextInput from '../TextInput/TextInput';
 
 const ResetPassword = ({setOpenModal}) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -32,31 +33,19 @@ const ResetPassword = ({setOpenModal}) => {
                 <div className={style.title}>
                     <h2>Reset Your Password</h2>
                 </div>
-                {/* <div className={style.body}>
-                    <form>
-                        <input type="email" placeholder="Email" ref={refEmail}/> 
-                        <div className="passwordWrapper">
-                            <input type={showPassword ? "text" : "password"} 
-                                placeholder="NewPassword" ref={refPassword}/>
-                            <span onClick={() => setShowPassword(!showPassword)}>
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
-                        </div>
-                        <div className="passwordWrapper">
-                            <input  type={showConfirmPassword ? "text" : "password"} 
-                                placeholder="Confirm Password" ref={refConfirmPassword}/>
-                            <span onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
-                                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
-                        </div>
+                <div className={style.body}>
+                    <form className={style.formSection}>
+                        <TextInput type='email' label="Email"/>
+                        <TextInput type='password' label="New Password"/>
+                        <TextInput type='password' label="Confirm Password"/>
                     </form>
-                </div> */}
-                {/* <div className={style.footer}>
+                </div>
+                <div className={style.footer}>
                     <button className={style.cancelBtn} onClick={() => {setOpenModal(false);}}>
                         Back to Login
                     </button>
-                    <button onClick={handleResetPassword}>Reset Password</button>
-                </div> */}
+                    <button  className={style.confirmBtn} onClick={handleResetPassword}>Reset Password</button>
+                </div>
             </div>
         </div>
     );
