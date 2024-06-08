@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/'>
             {/* <Route index element={<Portfolio/>}/> */}
-            <Route index path='/' element={<Login/>}/>
+            <Route index path='/ibex/' element={<Login/>}/>
             {/* <Route path='/signup' element={<Register/>}/> */}
             {/* <Route path='/chat' element={<Chat/>}/> */}
           </Route>
