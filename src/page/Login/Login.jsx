@@ -14,10 +14,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import TextInput from "../../component/TextInput/TextInput";
 
 const Login = () => {
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(false)
     const [isPasswordReset, setIsPasswordReset] = useState(false);
     const navigate = useNavigate();
-    console.log('isLogin', isLogin)
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         console.log(ev)
@@ -58,7 +57,7 @@ const Login = () => {
                 {!isLogin && <TextInput label="Email" type="email"/>}
                 <TextInput label="Password" type="password"/>
                 {!isLogin &&<TextInput label="Confirm Password" type="password"/>}
-                <div className={style.formButtons}>
+                <div className={`${style.formButtons} ${isLogin && style.loginForm} `}>
                     {isLogin && <button className={`${style.forgotPassword} ${style.isLogin}`} onClick={() => setIsPasswordReset(true)}>Forgot Password?</button>}
                     <button className={`${style.submit} ${isLogin ? style.isLogin : style.isJoin}` } type="submit">{isLogin ? 'Step Inside':'Get Started'}</button>
                 </div>
