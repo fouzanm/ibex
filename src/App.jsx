@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/'>
             {/* <Route index element={<Portfolio/>}/> */}
-            <Route path='/login' element={<Login/>}/>
+            <Route index path='/' element={<Login/>}/>
             {/* <Route path='/signup' element={<Register/>}/> */}
             {/* <Route path='/chat' element={<Chat/>}/> */}
           </Route>
