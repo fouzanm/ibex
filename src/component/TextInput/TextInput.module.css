@@ -74,3 +74,7 @@ input::selection {
         transform: translate(0, 12px) scale(0.9);
     }
 }
+
+@media (min-width: 600px) and (max-width: 992px) {
+    
+}

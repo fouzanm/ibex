@@ -52,12 +52,12 @@ const Login = () => {
                     :'Join now to seamlessly integrate Ibex into your life and unlock streamlined chat and e-commerce solutions for maximum productivity.'}
                 </span>
             </div>
-            <form onSubmit={handleSubmit} className={style.formSection}>
+            <form onSubmit={handleSubmit} className={`${style.formSection} ${!isLogin && style.joinSection}`}>
                 <TextInput label={isLogin ? 'Username or Email' : "Name"}/>
                 {!isLogin && <TextInput label="Email" type="email"/>}
                 <TextInput label="Password" type="password"/>
                 {!isLogin &&<TextInput label="Confirm Password" type="password"/>}
-                <div className={`${style.formButtons} ${isLogin && style.loginForm} `}>
+                <div className={`${style.formButtons} ${isLogin ? style.loginForm : style.joinForm} `}>
                     {isLogin && <button className={`${style.forgotPassword} ${style.isLogin}`} onClick={() => setIsPasswordReset(true)}>Forgot Password?</button>}
                     <button className={`${style.submit} ${isLogin ? style.isLogin : style.isJoin}` } type="submit">{isLogin ? 'Step Inside':'Get Started'}</button>
                 </div>
