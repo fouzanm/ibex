@@ -51,7 +51,8 @@ const Chat = () => {
                     <div className={style.messageSection}>
                         <div className={style.container}>
                             <div className={style.activeUser}>
-                                
+                                <img src={User}/>
+                                <span>Cristiano Ronaldo</span>
                             </div>
                             <div className={style.content}>Content</div>
                             <div className={style.inputContainer}>
