@@ -11,10 +11,10 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path='/ibex/'>
+          <Route path='/ibex'>
             {/* <Route index element={<Portfolio/>}/> */}
-            <Route index path='' element={<Login/>}/>
-            {/* <Route path='/chat' element={<Chat/>}/> */}
+            <Route path='login' element={<Login/>}/>
+            <Route path='chat' element={<Chat/>}/>
           </Route>
         </Routes>
     </BrowserRouter>

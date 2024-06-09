@@ -1,0 +1,67 @@
+body {
+    background: white;
+}
+.navbar {
+    background: black;
+    height: 100vh;
+    width: 20%;
+}
+.title {
+    height: 120;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+}
+.title img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+.title img:hover {
+    transform: scale(1.05);
+}
+.navItems {
+    height: 75%;
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.navLink {
+    list-style-type: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--text-color);
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.active {
+    color: #BEBEBE;
+    font-size: 15px;
+}
+
+.navLink:hover {
+    color: #BEBEBE;
+}
+
+.active:hover {
+    color: var(--secondary-color);
+}
+
+.settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.settings:hover {
+    color: #BEBEBE;
+}
