@@ -23,6 +23,7 @@ const Login = () => {
         if (isLogin) {
             if (username && password) {
                 toast.success('Login successful! Welcome back!');
+                navigate('chat');
             } else {
                 toast.warn("Please ensure all fields are completed");
             };
@@ -33,11 +34,11 @@ const Login = () => {
                 toast.error('Passwords do not match. Please try again.');
             } else if ( username && email && password) {
                 toast.success('Registration successful! Welcome aboard!');
+                navigate('chat');
             } else {
                 toast.warn("Please ensure all fields are completed");
             };
         };
-        // navigate('/')
     };
     
     return (
