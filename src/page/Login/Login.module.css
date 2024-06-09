@@ -99,7 +99,7 @@
     border-radius: 30px;
     font-weight: bolder;
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     cursor: pointer;
     border: none;
     transition: background-color 0.4s ease, color 0.4s ease;
@@ -241,6 +241,7 @@
         height: 100vh;
         border: none;
         margin: 20px 0;
+        padding: 10px 0;
     }
     .title {
         padding: 0 30px 10px 30px;
@@ -269,7 +270,7 @@
     .submit {
         height: 50px;
         font-size: 18px;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
     .forgotPassword {
         height: 50px;
@@ -298,7 +299,7 @@
     }
 }
 
-@media (min-width: 600px) and (max-width: 992px) {
+@media (min-width: 600px) and (max-width: 991px) {
     .login {
         display: flex;
         flex-direction: column;
@@ -307,14 +308,19 @@
     }
     .imageWrapper {
         width: calc(100% - 40px);
-        height: 45vh;
+        height: calc(50vh - 20px);
     }
     .formWrapper {
         width: calc(100% - 40px);
-        height: 45vh;
+        height: fit-content;
+        padding: 10px 0;
+    }
+    .description span {
+        font-size: 16px;
     }
     .formSection {
-        gap: 20px;
+        gap: 10px;
+        padding: 10px 50px;
     }
     .joinSection {
         display: grid;
@@ -323,10 +329,60 @@
     .joinForm {
         grid-column: span 2;
     }
-    .loginForm {
-        margin-top: 30px;
+    .formButtons {
+        margin-top: 15px;
+    }
+    .formButtons button {
+        height: 50px;
     }
     .isJoin {
         width: 75%;
+    }
+    .lines {
+        margin: 5px 0;
+    }
+    .buttonGroup button {
+        height: 45px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .login {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 15px;
+    }
+    .imageWrapper {
+        width: calc(100% - 40px);
+        height: calc(50vh - 40px);
+    }
+    .formWrapper {
+        width: calc(100% - 40px);
+        height: fit-content;
+        padding: 10px 0;
+    }
+    .formSection {
+        gap: 20px;
+        padding: 20px 50px;
+    }
+    .joinSection {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .joinForm {
+        grid-column: span 2;
+    }
+    .formButtons {
+        margin-top: 25px;
+    }
+    .isJoin {
+        width: 75%;
+    }
+    .divide:before{
+        width: 225px;
+    }
+    .divide:after{
+        width: 225px;
     }
 }
