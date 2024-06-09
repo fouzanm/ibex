@@ -64,3 +64,84 @@
     flex-direction: column;
     gap: 10px;   
 }
+
+.navbar {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 20px;
+    gap: 15px;
+    font-size: 18px;
+}
+
+.navbar img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.messageSection {
+    height: 90%;
+}
+.container {
+    margin: 25px;
+    background: white;
+    height: calc(100% - 50px);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.activeUser {
+    width: 90%;
+    height: 10%;
+    border-bottom: 1px solid #BEBEBE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content {
+    width: 100%;
+    height: 80%;
+    padding: 15px;
+}
+.inputContainer {
+    width: 100%;
+    height: 10%;
+    padding: 15px 30px;
+    position: relative;
+    font-size: 18px;
+}
+
+.inputContainer input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    background-color: #BEBEBE;
+    color: var(--text-color);
+    padding: 0px 40px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+input:focus-visible {
+    outline: none;
+}
+.inputAction {
+    position: absolute;
+    display: flex;
+    gap: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+    cursor: pointer;
+}
+.emoji {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 40px;
+    display: flex;
+    cursor: pointer;
+}

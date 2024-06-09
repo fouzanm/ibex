@@ -5,6 +5,12 @@ import Navbar from '../../component/Navbar/Navbar';
 import style from './Chat.module.css'
 import Message from '../../component/Messages/Message';
 import User from '../../assets/user1.jpg'
+import Me from '../../assets/user2.jpg'
+import { IoCallOutline, IoSend, IoVideocamOutline } from "react-icons/io5";
+import { FaRegImages } from "react-icons/fa";
+import { GrAttachment } from "react-icons/gr";
+import { TiMicrophone } from "react-icons/ti";
+import { FaRegFaceSmile } from "react-icons/fa6";
 
 const Chat = () => {
     const [count, setCount] = useState(4);
@@ -36,7 +42,31 @@ const Chat = () => {
                         <Message image={User} name='Leroy' message='Hey, how are u?' time='12.02' count={1}/>
                     </div>
                 </div>
-                <div className={style.messageContainer}></div>
+                <div className={style.messageContainer}>
+                    <div className={style.navbar}>
+                        <IoCallOutline />
+                        <IoVideocamOutline />
+                        <img src={Me}/>
+                    </div>
+                    <div className={style.messageSection}>
+                        <div className={style.container}>
+                            <div className={style.activeUser}>
+                                
+                            </div>
+                            <div className={style.content}>Content</div>
+                            <div className={style.inputContainer}>
+                                <span className={style.emoji}><FaRegFaceSmile /></span>
+                                <input placeholder='Your Message'/>
+                                <span className={style.inputAction}>
+                                    <GrAttachment />
+                                    <FaRegImages />
+                                    <TiMicrophone />
+                                    <IoSend />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )
