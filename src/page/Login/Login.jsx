@@ -4,7 +4,6 @@ import Google from "../../assets/google.webp"
 import Facebook from "../../assets/facebook.png"
 import bg1 from "../../assets/bg-1.png"
 import bg2 from "../../assets/bg-2.png"
-
 import style from './Login.module.css'
 import { Link, useNavigate } from "react-router-dom";
 import ResetPassword from "../../component/ResetPassword/ResetPassword";
@@ -19,22 +18,32 @@ const Login = () => {
     const navigate = useNavigate();
     const handleSubmit = async (ev) => {
         ev.preventDefault();
-        console.log(ev)
-
-        // let username = ev.target[0].value;
-        // let password = ev.target[1].value;
-        // if (!username || !password) {
-        //     toast.warn('Please fill in all fields');
-        // } else {
-        //     toast.success('Successfully Logined');
-        // }
+        let username = ev.target[0].value;
+        let password = isLogin ? ev.target[1].value : ev.target[2].value;
+        if (isLogin) {
+            if (username && password) {
+                toast.success('Login successful! Welcome back!');
+            } else {
+                toast.warn("Please ensure all fields are completed");
+            };
+        } else {
+            let email = ev.target[1].value;
+            let password2 = !isLogin && ev.target[3].value;
+            if (password !== password2) {
+                toast.error('Passwords do not match. Please try again');
+            } else if ( username && email && password) {
+                toast.success('Registration successful! Welcome aboard!');
+            } else {
+                toast.warn("Please ensure all fields are completed");
+            };
+        };
         // navigate('/')
     }
 
     return <>
      <div className={style.login}>
         {isPasswordReset && <ResetPassword setOpenModal={setIsPasswordReset}/>}
-        {/* <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/> */}
+        <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/>
         <div className={style.imageWrapper}>
             <img src={isLogin ? bg1 : bg2}/>
         </div>
@@ -44,7 +53,6 @@ const Login = () => {
                 <div className={style.heading}>
                     <h1>{isLogin ? 'Welcome Back to Ibex!': 'Simplify Your World!'}</h1>
                 </div>
-                
             </div>
             <div className={style.description}>
                 <span>
@@ -73,28 +81,6 @@ const Login = () => {
                 <button><img src={Facebook}/>Facebook</button>
             </div>
         </div>
-        {/* <div className="formWrapper">
-            <div className="title">
-                <img className="ibex" src={Logo}/>
-                <h1 className="logo">ibex</h1>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Name or Email"/>
-                <div className="passwordWrapper">
-                    <input type={showPassword ? "text" : "password"} placeholder="Password"/>
-                    <span onClick={() => setShowPassword(!showPassword)}>
-                        {showPassword ? <FaEyeSlash /> : <FaEye />}
-                    </span>
-                </div>
-                <div className={style.buttonGroups}>
-                    <button type="button" onClick={() => setIsPasswordReset(true)} className={style.forgotPassword}>
-                        Forgot Password ?
-                    </button>
-                    <button type="submit" className={style.login}>Login</button>
-                </div>                
-            </form>
-            <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
-        </div> */}
     </div>
     </>
 
