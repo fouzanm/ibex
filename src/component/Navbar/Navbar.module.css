@@ -1,10 +1,8 @@
-body {
-    background: white;
-}
 .navbar {
     background: black;
     height: 100vh;
     width: 20%;
+    position: fixed;
 }
 .title {
     height: 120;

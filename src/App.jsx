@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path='/ibex'>
             {/* <Route index element={<Portfolio/>}/> */}
-            <Route path='login' element={<Login/>}/>
+            <Route index path='login' element={<Login/>}/>
             <Route path='chat' element={<Chat/>}/>
           </Route>
         </Routes>
