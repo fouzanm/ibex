@@ -31,7 +31,7 @@ const ResetPassword = ({setOpenModal}) => {
                         <TextInput type='password' label="New Password"/>
                         <TextInput type='password' label="Confirm Password"/>
                         <div className={style.footer}>
-                            <button className={style.cancelBtn} type='button' onClick={() => {setOpenModal(false);}}>
+                            <button className={style.cancelBtn} type='button' onClick={() => {setOpenModal(false)}}>
                                 Back to Login
                             </button>
                             <button  className={style.confirmBtn} type='submit'>Reset Password</button>
@@ -41,6 +41,6 @@ const ResetPassword = ({setOpenModal}) => {
             </div>
         </div>
     );
-}
+;}
 
 export default ResetPassword;

@@ -6,12 +6,10 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const TextInput = ({ type = 'text', label }) => {
     const [value, setValue] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const handleChange = (e) => {
-        setValue(e.target.value);
-    }
+
     return (
         <div className={style.textInput}>
-            <input type={type === 'text' || showPassword ? 'text' : type} value={value} onChange={handleChange} />
+            <input type={type === 'text' || showPassword ? 'text' : type} value={value} onChange={(ev) => setValue(ev.target.value)} />
             {type === 'password' && <span className={style.password} onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>}
@@ -20,6 +18,6 @@ const TextInput = ({ type = 'text', label }) => {
             </label> 
         </div>
     )
-}
+};
 
 export default TextInput;
