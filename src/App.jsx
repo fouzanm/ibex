@@ -11,9 +11,9 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path='/'>
+          <Route path='/ibex/'>
             {/* <Route index element={<Portfolio/>}/> */}
-            <Route index path='/ibex/' element={<Login/>}/>
+            <Route index path='' element={<Login/>}/>
             {/* <Route path='/chat' element={<Chat/>}/> */}
           </Route>
         </Routes>

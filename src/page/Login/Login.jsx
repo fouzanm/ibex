@@ -7,7 +7,6 @@ import bg2 from "../../assets/bg-2.png"
 import style from './Login.module.css'
 import { Link, useNavigate } from "react-router-dom";
 import ResetPassword from "../../component/ResetPassword/ResetPassword";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TextInput from "../../component/TextInput/TextInput";
@@ -30,7 +29,7 @@ const Login = () => {
             let email = ev.target[1].value;
             let password2 = !isLogin && ev.target[3].value;
             if (password !== password2) {
-                toast.error('Passwords do not match. Please try again');
+                toast.error('Passwords do not match. Please try again.');
             } else if ( username && email && password) {
                 toast.success('Registration successful! Welcome aboard!');
             } else {
@@ -66,7 +65,7 @@ const Login = () => {
                 <TextInput label="Password" type="password"/>
                 {!isLogin &&<TextInput label="Confirm Password" type="password"/>}
                 <div className={`${style.formButtons} ${isLogin ? style.loginForm : style.joinForm} `}>
-                    {isLogin && <button className={`${style.forgotPassword} ${style.isLogin}`} onClick={() => setIsPasswordReset(true)}>Forgot Password?</button>}
+                    {isLogin && <button className={`${style.forgotPassword} ${style.isLogin}`} type="button" onClick={() => setIsPasswordReset(true)}>Forgot Password?</button>}
                     <button className={`${style.submit} ${isLogin ? style.isLogin : style.isJoin}` } type="submit">{isLogin ? 'Step Inside':'Get Started'}</button>
                 </div>
             </form>
