@@ -2,7 +2,7 @@
     width: 80%;
     height: 100vh;
     float: right;
-    background: white;
+    background: #f9fafc;
     color: black;
     display: flex;
 }
@@ -61,5 +61,6 @@
 .userContainer {
     padding: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;   
 }
