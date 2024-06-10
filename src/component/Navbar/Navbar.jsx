@@ -21,9 +21,12 @@ const Navbar = ({activeSection}) => {
                          {item}</li>
                 ))}
             </div>
-            <div className={style.settings}>
-            <IoIosSettings /> Settings
+            <div className={`${style.navItems} ${style.settings}`}>
+                <div className={`${style.navLink} ${style.active}`}>
+                    <IoIosSettings /> Settings
+                </div>
             </div>
+            
         </div>
     )
 }

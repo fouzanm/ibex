@@ -60,10 +60,16 @@
 .userSection {
     overflow-y: auto;
     position: relative;
-    height: calc(100vh - 10vh - 80px);
+    height: calc(100vh - 10vh - 100px);
+    scrollbar-width: none;
+    top: 20px;
+    scroll-behavior: smooth;
+}
+.userSection::-webkit-scrollbar {
+    display: none;
 }
 .userContainer {
-    padding: 20px 20px 0;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;   
