@@ -29,11 +29,10 @@
 }
 .text {
     font-size: 10px;
-    color: #BEBEBE;
+    color: gray;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: monospace;
 }
 .time {
     width: 15%;
