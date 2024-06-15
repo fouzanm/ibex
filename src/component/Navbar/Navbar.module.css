@@ -13,8 +13,8 @@
     border-bottom: 1px solid var(--text-color);
 }
 .title img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 85px;
     transition: transform 0.4s ease;
     will-change: transform;
 }
