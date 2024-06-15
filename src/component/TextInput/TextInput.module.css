@@ -75,6 +75,11 @@ input::selection {
     }
 }
 
-@media (min-width: 600px) and (max-width: 992px) {
-    
+@media (min-width: 600px) and (max-width: 1884px) {
+    .textInput input {
+        font-size: 14px;
+    }
+    .textInput label {
+        font-size: 14px;
+    }
 }

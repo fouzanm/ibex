@@ -30,7 +30,6 @@
 .formWrapper{
     padding: 40px 0;
     width: 40%;
-    /* height: fit-content; */
     height: 100%;
     border: 3px solid var(--text-color);
     border-radius: 45px;
@@ -354,5 +353,34 @@
     }
     .formSection {
         gap: 20px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1884px) {
+    .formWrapper {
+        padding: 20px 0;
+        justify-content: space-around;
+    }
+    .title img{
+        width: 80px;
+        height: 75px;
+    }
+    .heading {
+        height: 90px;
+    }
+    .heading h1 {
+        font-size: 24px;
+    }
+    .description span {
+        font-size: 16px;
+    }
+    .formSection {
+        gap: unset;
+    }
+    .submit {
+        height: 55px;
+    }
+    .forgotPassword {
+        font-size: 14px;
     }
 }
