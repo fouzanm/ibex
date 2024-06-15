@@ -45,41 +45,47 @@ const Login = () => {
         <div className={style.login}>
             {isPasswordReset && <ResetPassword setOpenModal={setIsPasswordReset}/>}
             <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/>
-            <div className={style.imageWrapper}>
-                <img src={isLogin ? bg1 : bg2}/>
-            </div>
-            <div className={style.formWrapper}>
-                <div className={style.title}>
-                    <img src={Logo}/>
-                    <div className={style.heading}>
-                        <h1>{isLogin ? 'Welcome Back to Ibex!': 'Simplify Your World!'}</h1>
+            <div className={style.container}>
+                <div className={style.imageWrapper}>
+                    <img src={isLogin ? bg1 : bg2}/>
+                </div>
+                <div className={style.formWrapper}>
+                    <div className={style.formHeader}>
+                        <div className={style.title}>
+                            <img src={Logo}/>
+                            <div className={style.heading}>
+                                <h1>{isLogin ? 'Welcome Back to Ibex!': 'Simplify Your World!'}</h1>
+                            </div>
+                        </div>
+                        <div className={style.description}>
+                            <span>
+                                {isLogin ? 'Ready to dive back in? Log in now to access your streamlined chat and advanced e-commerce tools, and keep your productivity soaring effortlessly.'
+                                :'Join now to seamlessly integrate Ibex into your life and unlock streamlined chat and e-commerce solutions for maximum productivity.'}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className={style.description}>
-                    <span>
-                        {isLogin ? 'Ready to dive back in? Log in now to access your streamlined chat and e-commerce tools and keep your productivity soaring'
-                        :'Join now to seamlessly integrate Ibex into your life and unlock streamlined chat and e-commerce solutions for maximum productivity.'}
-                    </span>
-                </div>
-                <form onSubmit={handleSubmit} className={`${style.formSection} ${!isLogin && style.joinSection}`}>
-                    <TextInput label={isLogin ? 'Username or Email' : "Name"}/>
-                    {!isLogin && <TextInput label="Email" type="email"/>}
-                    <TextInput label="Password" type="password"/>
-                    {!isLogin &&<TextInput label="Confirm Password" type="password"/>}
-                    <div className={`${style.formButtons} ${isLogin ? style.loginForm : style.joinForm} `}>
-                        {isLogin && <button className={`${style.forgotPassword} ${style.isLogin}`} type="button" onClick={() => setIsPasswordReset(true)}>Forgot Password?</button>}
-                        <button className={`${style.submit} ${isLogin ? style.isLogin : style.isJoin}` } type="submit">{isLogin ? 'Step Inside':'Get Started'}</button>
+                    <div className={style.body}>
+                        <form onSubmit={handleSubmit} className={`${style.formSection} ${!isLogin && style.joinSection}`}>
+                            <TextInput label={isLogin ? 'Username or Email' : "Name"}/>
+                            {!isLogin && <TextInput label="Email" type="email"/>}
+                            <TextInput label="Password" type="password"/>
+                            {!isLogin &&<TextInput label="Confirm Password" type="password"/>}
+                            {isLogin && <span className={style.forgotPassword} onClick={() => setIsPasswordReset(true)}>Forgot Password?</span>}
+                            <button className={style.submit} type="submit">{isLogin ? 'Step Inside':'Get Started'}</button>
+                        </form>
+                        <div className={style.label}>
+                            <span>{isLogin ? "Don't" : "Already"} have an account? <button onClick={() => setIsLogin(!isLogin)}>{isLogin ? 'Join' : 'Login'}</button></span>
+                        </div>
                     </div>
-                </form>
-                <div className={style.label}>
-                    <span>{isLogin ? "Don't" : "Already"} have an account? <button onClick={() => setIsLogin(!isLogin)}>{isLogin ? 'Join' : 'Login'}</button></span>
-                </div>
-                <div className={style.lines}>
-                    <p className={style.divide}>OR</p>
-                </div>
-                <div className={style.buttonGroup}>
-                    <button><img src={Google}/>Google</button>
-                    <button><img src={Facebook}/>Facebook</button>
+                    <div className={style.footer}>
+                        <div className={style.lines}>
+                            <p className={style.divide}>OR</p>
+                        </div>
+                        <div className={style.buttonGroup}>
+                            <button><img src={Google}/>Google</button>
+                            <button><img src={Facebook}/>Facebook</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
