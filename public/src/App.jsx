@@ -4,6 +4,7 @@ import Portfolio from './page/Portfolio/Portfolio'
 import Login from './page/Login/Login'
 import { createBrowserRouter, RouterProvider, Route, Link, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import Chat from './page/Chat/Chat';
+import Home from './page/Home/Home';
 
 
 function App() {
@@ -11,11 +12,9 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path='/ibex'>
-            {/* <Route index element={<Portfolio/>}/> */}
-            <Route index path='' element={<Login/>}/>
-            <Route path='chat' element={<Chat/>}/>
-          </Route>
+            <Route exact index path='/' element={<Home/>}/>
+            <Route exact path='/auth' element={<Login/>}/>
+            <Route exact path='/chat' element={<Chat/>}/>
         </Routes>
     </BrowserRouter>
   )

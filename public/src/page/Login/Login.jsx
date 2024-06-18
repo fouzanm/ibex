@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../assets/ibex.png"
 import Google from "../../assets/google.webp"
 import Facebook from "../../assets/facebook.png"
@@ -10,35 +10,64 @@ import ResetPassword from "../../component/ResetPassword/ResetPassword";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TextInput from "../../component/TextInput/TextInput";
+import axios from "axios";
+import { useLocation } from 'react-router-dom';
+
+
 
 const Login = () => {
-    const [isLogin, setIsLogin] = useState(false)
-    const [isPasswordReset, setIsPasswordReset] = useState(false);
+    const location = useLocation();
     const navigate = useNavigate();
+    const queryParams = new URLSearchParams(location.search);
+    const initialAuth = queryParams.get('auth') || 'login';
+    const url = "http://localhost:4000/";
 
-    const handleSubmit = (ev) => {
+    const [isLogin, setIsLogin] = useState(initialAuth === 'login');
+    const [isPasswordReset, setIsPasswordReset] = useState(false);
+    const generateError = (error) => toast.error(error);
+
+    const handleSubmit = async (ev) => {
         ev.preventDefault();
-        let username = ev.target[0].value;
+        let email = isLogin ? ev.target[0].value : ev.target[1].value;
         let password = isLogin ? ev.target[1].value : ev.target[2].value;
         if (isLogin) {
-            if (username && password) {
-                toast.success('Login successful! Welcome back!');
-                navigate('chat');
+            if (email && password) {
+                const {data} = await axios.post(`${url}login`, {email, password}, {withCredentials: true});
+                if (data?.errors) {
+                    let {email, password} = data.errors;
+                    if (email) generateError(email);
+                    else if (password) generateError(password);
+                } else if (data) {
+                    toast.success('Login successful! Welcome back!');
+                    navigate('/chat');
+                }; 
             } else {
-                toast.warn("Please ensure all fields are completed");
+                toast.warn("Please ensure all fields are filled");
             };
         } else {
-            let email = ev.target[1].value;
+            let username = ev.target[0].value;
             let password2 = !isLogin && ev.target[3].value;
             if (password !== password2) {
                 toast.error('Passwords do not match. Please try again.');
             } else if ( username && email && password) {
-                toast.success('Registration successful! Welcome aboard!');
-                navigate('chat');
+                const {data} = await axios.post(`${url}register`, {username, email, password}, {withCredentials: true});
+                if (data?.errors) {
+                    let {email, password} = data.errors;
+                    if (email) generateError(email);
+                    else if (password) generateError(password);
+                } else if (data) {
+                    toast.success('Registration successful! Welcome aboard!');
+                    navigate('/chat');
+                };;
             } else {
-                toast.warn("Please ensure all fields are completed");
+                toast.warn("Please ensure all fields are filled");
             };
         };
+    };
+
+    const handleAuth = () => {
+        navigate(`/auth?auth=${isLogin ? 'signup': 'login'}`);
+        setIsLogin(!isLogin);
     };
     
     return (
@@ -66,15 +95,15 @@ const Login = () => {
                     </div>
                     <div className={style.body}>
                         <form onSubmit={handleSubmit} className={`${style.formSection} ${!isLogin && style.joinSection}`}>
-                            <TextInput label={isLogin ? 'Username or Email' : "Name"}/>
-                            {!isLogin && <TextInput label="Email" type="email"/>}
+                            {!isLogin && <TextInput label="Name"/>}
+                            <TextInput label="Email" type="email"/>
                             <TextInput label="Password" type="password"/>
                             {!isLogin &&<TextInput label="Confirm Password" type="password"/>}
                             {isLogin && <span className={style.forgotPassword} onClick={() => setIsPasswordReset(true)}>Forgot Password?</span>}
                             <button className={style.submit} type="submit">{isLogin ? 'Step Inside':'Get Started'}</button>
                         </form>
                         <div className={style.label}>
-                            <span>{isLogin ? "Don't" : "Already"} have an account? <button onClick={() => setIsLogin(!isLogin)}>{isLogin ? 'Join' : 'Login'}</button></span>
+                            <span>{isLogin ? "Don't" : "Already"} have an account? <button onClick={handleAuth}>{isLogin ? 'Join' : 'Login'}</button></span>
                         </div>
                     </div>
                     <div className={style.footer}>
