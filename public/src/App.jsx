@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-            <Route exact index path='/' element={<Home/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route exact path='/auth' element={<Login/>}/>
             <Route exact path='/chat' element={<Chat/>}/>
         </Routes>

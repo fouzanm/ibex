@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import TextInput from "../../component/TextInput/TextInput";
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
+import { BASE_URL } from "../../utils";
 
 
 
@@ -20,7 +21,6 @@ const Login = () => {
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
     const initialAuth = queryParams.get('auth') || 'login';
-    const url = "http://localhost:4000/";
 
     const [isLogin, setIsLogin] = useState(initialAuth === 'login');
     const [isPasswordReset, setIsPasswordReset] = useState(false);
@@ -32,7 +32,7 @@ const Login = () => {
         let password = isLogin ? ev.target[1].value : ev.target[2].value;
         if (isLogin) {
             if (email && password) {
-                const {data} = await axios.post(`${url}login`, {email, password}, {withCredentials: true});
+                const {data} = await axios.post(`${BASE_URL}/login`, {email, password}, {withCredentials: true});
                 if (data?.errors) {
                     let {email, password} = data.errors;
                     if (email) generateError(email);
@@ -50,7 +50,7 @@ const Login = () => {
             if (password !== password2) {
                 toast.error('Passwords do not match. Please try again.');
             } else if ( username && email && password) {
-                const {data} = await axios.post(`${url}register`, {username, email, password}, {withCredentials: true});
+                const {data} = await axios.post(`${BASE_URL}/register`, {username, email, password}, {withCredentials: true});
                 if (data?.errors) {
                     let {email, password} = data.errors;
                     if (email) generateError(email);
