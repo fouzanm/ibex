@@ -12,10 +12,12 @@ import { GrAttachment } from "react-icons/gr";
 import { TiMicrophone } from "react-icons/ti";
 import { FaRegFaceSmile } from "react-icons/fa6";
 import { IoMdMore } from "react-icons/io";
+import useAuth from '../../hooks/useAuth';
 
 const Chat = () => {
     const [count, setCount] = useState(4);
     const lastMessageRef = useRef(null);
+    useAuth();
 
     useEffect(() => {
         if (lastMessageRef.current) {
