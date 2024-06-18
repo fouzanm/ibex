@@ -14,8 +14,6 @@ import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import { BASE_URL } from "../../utils";
 
-
-
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();

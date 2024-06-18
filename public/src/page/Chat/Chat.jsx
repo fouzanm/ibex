@@ -18,12 +18,12 @@ const Chat = () => {
     const [count, setCount] = useState(4);
     const lastMessageRef = useRef(null);
     useAuth();
-
     useEffect(() => {
         if (lastMessageRef.current) {
             lastMessageRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
     });
+
     return (
         <>
             <Navbar activeSection={"Messages"}/>

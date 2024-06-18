@@ -1,13 +1,11 @@
-import { useState } from 'react'
 import './App.css'
 import Portfolio from './page/Portfolio/Portfolio'
 import Login from './page/Login/Login'
-import { createBrowserRouter, RouterProvider, Route, Link, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import Chat from './page/Chat/Chat';
 import Home from './page/Home/Home';
 
-
-function App() {
+const App = () => {
 
   return (
     <BrowserRouter>
@@ -20,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
