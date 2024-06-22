@@ -4,6 +4,7 @@ import style from "./Home.module.css"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const Home = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['ibex']);
@@ -30,9 +31,13 @@ const Home = () => {
         verifyUser();
     }), [cookies, navigate, removeCookie];
 
-    return (
-        <>Home</>
-    )
+    return (<>
+        <div>Home</div>
+        <div className={style.logout}>
+            <button onClick={() => removeCookie('ibex')}>Logout <IoLogOutOutline /></button>
+        </div>
+
+    </>)
 };
 
 export default Home;
