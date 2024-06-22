@@ -13,12 +13,14 @@ import TextInput from "../../component/TextInput/TextInput";
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import { BASE_URL } from "../../utils";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const [cookies, setCookie] = useCookies(['ibex']);
     const queryParams = new URLSearchParams(location.search);
-    const initialAuth = queryParams.get('auth') || 'login';
+    const initialAuth = queryParams.get('mode') || 'login';
 
     const [isLogin, setIsLogin] = useState(initialAuth === 'login');
     const [isPasswordReset, setIsPasswordReset] = useState(false);
@@ -35,9 +37,9 @@ const Login = () => {
                     let {email, password} = data.errors;
                     if (email) generateError(email);
                     else if (password) generateError(password);
-                } else if (data) {
+                } else if (data?.created) {
                     toast.success('Login successful! Welcome back!');
-                    navigate('/chat');
+                    navigate('/');
                 }; 
             } else {
                 toast.warn("Please ensure all fields are filled");
@@ -53,10 +55,10 @@ const Login = () => {
                     let {email, password} = data.errors;
                     if (email) generateError(email);
                     else if (password) generateError(password);
-                } else if (data) {
+                } else if (data?.created) {
                     toast.success('Registration successful! Welcome aboard!');
-                    navigate('/chat');
-                };;
+                    navigate('/');
+                };
             } else {
                 toast.warn("Please ensure all fields are filled");
             };
@@ -64,14 +66,14 @@ const Login = () => {
     };
 
     const handleAuth = () => {
-        navigate(`/auth?auth=${isLogin ? 'signup': 'login'}`);
+        navigate(`/auth?mode=${isLogin ? 'signup': 'login'}`);
         setIsLogin(!isLogin);
     };
     
     return (
         <div className={style.login}>
             {isPasswordReset && <ResetPassword setOpenModal={setIsPasswordReset}/>}
-            <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/>
+            {/* <ToastContainer position= "top-right" autoClose= {3000} theme= "colored"/> */}
             <div className={style.container}>
                 <div className={style.imageWrapper}>
                     <img src={isLogin ? bg1 : bg2}/>

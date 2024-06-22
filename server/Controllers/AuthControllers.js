@@ -5,12 +5,13 @@ const maxAge = 3*24*60*60;
 const createToken = (id) => jwt.sign({id}, "ibex login secret key", {expiresIn: maxAge});
 
 const handleErrors = (error) => {
+    console.log(error)
     let errors = {email: null, password: null};
     if (error.message === "Incorrect Email") errors.email = "Email is not registered.";
     else if (error.message === "Incorrect Password") errors.email = "Password is incorrect.";
     else if (error.code === 11000) errors.email = "Email is already registered";
-    else if (err.message.includes("Users validation failed")) {
-        Object.values(err.errors).forEach(({properties}) => {
+    else if (error.message.includes("Users validation failed")) {
+        Object.values(error.errors).forEach(({properties}) => {
             errors[properties.path] = properties.message
         });
     };
@@ -37,6 +38,7 @@ module.exports.register = async (req, res) => {
 module.exports.login = async (req, res) => {
     try {
         const {email, password} = req.body;
+        console.log(req.body)
         const user = await User.login(email, password);
         const token = createToken(user._id);
         res.cookie("ibex", token, {
@@ -46,7 +48,8 @@ module.exports.login = async (req, res) => {
         });
         res.status(200).json({user: user._id, created: true});
     } catch (err) {
+        console.log("ERROR", err)
         const errors = handleErrors(err);
-        res.json({errors, created: false});
+        res.json({errors, created: false}); 
     };
 };
